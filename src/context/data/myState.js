@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import MyContext from './myContext';
 import { fireDB } from '../../firebase/FirebaseConfig';
-import { Timestamp, addDoc, collection, deleteDoc, doc, getDoc, getDocs, onSnapshot, orderBy, query, setDoc } from 'firebase/firestore';
+import {  Timestamp,  addDoc,  collection,  deleteDoc, doc, getDoc, getDocs, onSnapshot, orderBy, query, setDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify'
 
 function MyState(props) {
@@ -53,7 +53,7 @@ function MyState(props) {
     try {
       const q = query(
         collection(fireDB,"fooditems"),
-        orderBy("time")
+        
       );
       const data = onSnapshot(q, (QuerySnapshot) =>{
         let fooditemsArray = [];

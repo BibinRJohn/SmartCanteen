@@ -28,6 +28,23 @@ function Cart() {
     setTotalAmount(temp);
   }, [cartFooditems]);
 
+  const [itemQuantities, setItemQuantities] = useState({});
+
+  const handleQuantityChange = (item, quantity) => {
+    setItemQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [item.id]: quantity,
+    }));
+  };
+  useEffect(() => {
+    let temp = 0;
+    cartFooditems.forEach((cartFooditems) => {
+      const quantity = itemQuantities[cartFooditems.id] || 1;
+      temp = temp + parseInt(cartFooditems.price) * quantity;
+    });
+    setTotalAmount(temp);
+  }, [cartFooditems, itemQuantities]);
+
   const [totalCookingtime, setTotalCookingtime] = useState(0);
   useEffect(() => {
     let t = 0;
@@ -100,7 +117,7 @@ function Cart() {
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
           <div className="rounded-lg md:w-2/3 ">
             {cartFooditems.map((item, index) => {
-              const { name, imageUrl, price,cookingtime } = item;
+              const { name, imageUrl, price,cookingtime,id } = item;
               return (
                 <div className='relative shadow-md flex mb-6 flex-col bg-white border border-gray-200 rounded-lg md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700'>
                   <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={imageUrl} alt="" />
@@ -113,6 +130,8 @@ function Cart() {
                           <select
                             id="quantity"
                             name="quantity"
+                            value={itemQuantities[id] || 1}
+                            onChange={(e) => handleQuantityChange(item, e.target.value)}
                             required
                             className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
                           >

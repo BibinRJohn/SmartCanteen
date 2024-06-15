@@ -1,13 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
-const initialState = JSON.parse(localStorage.getItem('cart'))??[];
+const initialState = JSON.parse(localStorage.getItem('cart')) ?? [];
 
 const cartSlice = createSlice ({
     name : 'cart',
     initialState,
     reducers:{
         addToCart(state,action){
-            state.push(action.payload)
+            //state.push(action.payload)
+            const itemExists = state.find((item) => item.id === action.payload.id);
+                if (!itemExists) {
+                    state.push({ ...action.payload });
+                } else {
+                    toast.error('Item already in cart');
+                }
+            
         },
         deleteFromCart(state,action){
             return state.filter(item => item.id !== action.payload.id);

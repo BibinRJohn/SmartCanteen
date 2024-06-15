@@ -11,7 +11,7 @@ function Produts() {
   const { fooditem } = context;
 
   //***Filter food items by category***//
-  const snacks = fooditem.filter(item => item.category === 'Snack');
+  const snacks = fooditem.filter(item => item.category === 'Snacks');
   const chinese = fooditem.filter(item => item.category === 'Chinese');
   const southindian = fooditem.filter(item => item.category === 'South Indian');
   const dessertcolddrink = fooditem.filter(item => item.category === 'Dessert/Cold drink');
@@ -20,6 +20,15 @@ function Produts() {
   const cartFooditems = useSelector((state) => state.cart)
   //console.log(cartFooditems)
 
+  // //**Add to Cart***//
+  // const addCart = (fooditem) => {
+  //   const { time, ...payloadWithoutTime } = fooditem;
+  //   const { seconds, nanoseconds } = time;
+  //   const serializedTimestamp = { seconds, nanoseconds };
+  //   const payload = { ...payloadWithoutTime, time: serializedTimestamp };
+  //   dispatch(addToCart(payload));
+  //   toast.success("Add to Cart")
+  // }
   //**Add to Cart***//
   const addCart = (fooditem) => {
     dispatch(addToCart(fooditem));
@@ -28,7 +37,7 @@ function Produts() {
 
   useEffect(() => {
     localStorage.setItem('cart',JSON.stringify(cartFooditems));
-  }, []);
+  }, [cartFooditems]);
 
 
   return (
