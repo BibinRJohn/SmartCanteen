@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+Smart Canteen
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Smart Canteen project! This project leverages time series analysis and recommendation systems to enhance the canteen experience. It uses ARIMA for demand prediction and content-based filtering for personalized food recommendations.
 
-## Available Scripts
+Table of Contents
+1.Introduction
+2.Features
+3.Technologies
+4.Installation
+5.Usage
 
-In the project directory, you can run:
 
-### `npm start`
+Introduction
+Smart Canteen is designed to optimize the operations of a canteen by predicting food demand and recommending dishes to users based on their preferences. The system aims to reduce food wastage and enhance user satisfaction through accurate predictions and personalized recommendations.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Features
+* Demand Prediction: Uses ARIMA (AutoRegressive Integrated Moving Average) model to forecast the demand for different food items.
+* Personalized Recommendations: Implements content-based filtering to recommend dishes based on user preferences and past behavior.
+* User-Friendly Interface: Provides a simple and intuitive interface for canteen managers and users.
+* Data-Driven Insights: Offers actionable insights through data analysis and visualization.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Technologies
+* Python: Main programming language for backend logic.
+* ARIMA: Used for time series forecasting.
+* Content-Based Filtering: For personalized recommendations.
+* Flask/Django: Web framework for developing the server-side logic (choose one based on your implementation).
+* Pandas & NumPy: For data manipulation and analysis.
+* Matplotlib/Seaborn: For data visualization.
+* Firebase Database: For storing user data and food item information.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Installation
+Clone the repository:
+git clone https://github.com/yourusername/smart-canteen.git
+cd smart-canteen
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Create a virtual environment and activate it:
+python3 -m venv env
+source env/bin/activate  # On Windows use `env\Scripts\activate`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Usage
+Start the server:
+python app.py  # Or the appropriate command for your web framework
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Access the application:
+Open your web browser and navigate to http://localhost:5000 (or the specified port).
